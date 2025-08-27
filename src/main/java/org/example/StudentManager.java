@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -35,7 +36,7 @@ public class StudentManager {
         // Prompt the user to enter a new student name (using scanner and I/O methods learned previously,
         // refer to mainMenu() for an example)
         // Add the student to the list
-        System.out.println("Enter New Student's Name:");
+        System.out.println("\nEnter New Student's Name:");
         String name = scanner.nextLine();
         students.add(name);
         System.out.println("Added new student \"" + name + "\".\n");
@@ -46,20 +47,37 @@ public class StudentManager {
         // Prompt the user for a student name
         // Use the contains method to check if the student entered is in the list
         // If so, remove it, if not, print "Student not found."
-        System.out.println("Enter Expelled Student's Name:");
+        System.out.println("\nEnter Expelled Student's Name:");
         String name = scanner.nextLine();
-        students.remove(name);
-        System.out.println("Expelled student \"" + name + "\".\n");
+
+        if (students.contains(name)) {
+            students.remove(name);
+            System.out.println("Expelled student \"" + name + "\".\n");
+        } else {
+            System.out.println("Could not find student \"" + name + "\".\n");
+        }
+
         mainMenu();
     }
 
     public void viewStudents() {
         // Loop through the list of students and print each one
         // (Use a for-each loop!)
-        System.out.println("Students:");
-        for (String student : students) {
-            System.out.println("- " + student);
+
+        if (students.size() < 1) {
+            System.out.println("\nThere are no students.\n");
         }
+        else if (students.size() == 1) {
+            System.out.println("\n" + students.get(0) + " is the only student.\n");
+        }
+        else {
+            System.out.println("\nStudents:");
+            for (String student : students) {
+                System.out.println("- " + student);
+            }
+            System.out.println(); // new line
+        }
+
         mainMenu();
     }
 }
