@@ -35,7 +35,10 @@ public class StudentManager {
         // Prompt the user to enter a new student name (using scanner and I/O methods learned previously,
         // refer to mainMenu() for an example)
         // Add the student to the list
-
+        System.out.println("Enter New Student's Name:");
+        String name = scanner.nextLine();
+        students.add(name);
+        System.out.println("Added new student \"" + name + "\".\n");
         mainMenu();
     }
 
@@ -43,13 +46,20 @@ public class StudentManager {
         // Prompt the user for a student name
         // Use the contains method to check if the student entered is in the list
         // If so, remove it, if not, print "Student not found."
-
+        System.out.println("Enter Expelled Student's Name:");
+        String name = scanner.nextLine();
+        students.remove(name);
+        System.out.println("Expelled student \"" + name + "\".\n");
         mainMenu();
     }
 
     public void viewStudents() {
         // Loop through the list of students and print each one
         // (Use a for-each loop!)
+        System.out.println("Students:");
+        for (String student : students) {
+            System.out.println("- " + student);
+        }
         mainMenu();
     }
 }
