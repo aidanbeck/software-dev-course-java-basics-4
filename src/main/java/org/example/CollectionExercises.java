@@ -10,13 +10,7 @@ public class CollectionExercises {
         // Create and return an array of strings with the following values:
         // "apple", "banana", "cherry", "date", "elderberry"
         // Replace the line below with your implementation
-        String[] fruits = new String[5];
-        fruits[0] = "apple";
-        fruits[1] = "banana";
-        fruits[2] = "cherry";
-        fruits[3] = "date";
-        fruits[4] = "elderberry";
-
+        String[] fruits = {"apple", "banana", "cherry", "date", "elderberry"};
         return fruits;
     }
 
@@ -24,13 +18,18 @@ public class CollectionExercises {
         // Create and return an array of strings with the given size (from the parameter)
         // Use a loop to set every element to "apple"
         // Replace the line below with your implementation
-        return null;
+        String[] fruits = new String[size];
+        for (int i = 0; i < size; i++) {
+            fruits[i] = "apple";
+        }
+        return fruits;
     }
 
     public String[] makeTopThreeArray(String[] fruits) {
         // Create and return a new array of strings containing the first three elements of the given array
         // Replace the line below with your implementation
-        return null;
+        String[] topThree = {fruits[0], fruits[1], fruits[2]}; // no for loop needed! Keep it simple.
+        return topThree;
     }
 
     public ArrayList<String> makeFruitList() {
